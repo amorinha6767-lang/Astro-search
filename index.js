@@ -142,6 +142,940 @@ status: 404
 
 }
 
+<!-- =========================================
+🚀 ASTRO CONSULT SLIDER
+Compacto • Premium • Interativo
+========================================= -->
+
+<section class="section" id="consulta">
+
+<div class="section-top">
+
+<div class="section-mini">
+ASTRO SEARCH
+</div>
+
+<div class="section-title">
+Consultas inteligentes
+</div>
+
+<div class="section-sub">
+Arraste para o lado e escolha
+qual consulta deseja realizar.
+</div>
+
+</div>
+
+<div class="astro-consult-wrapper">
+
+<!-- SLIDER -->
+
+<div class="astro-slider" id="astroSlider">
+
+<!-- TELEFONE -->
+
+<div class="astro-card active">
+
+<div class="astro-card-glow"></div>
+
+<div class="astro-card-top">
+
+<div class="astro-card-icon">
+📱
+</div>
+
+<div>
+<div class="astro-card-mini">
+CONSULTA
+</div>
+
+<div class="astro-card-title">
+Telefone
+</div>
+</div>
+
+</div>
+
+<div class="astro-card-text">
+Consulte números vinculados,
+dados associados e registros.
+</div>
+
+<div class="astro-card-input">
+
+<input
+type="text"
+id="telefoneInput"
+placeholder="Digite o telefone"
+/>
+
+<button onclick="consultarTelefone()">
+Consultar
+</button>
+
+</div>
+
+</div>
+
+<!-- CPF -->
+
+<div class="astro-card">
+
+<div class="astro-card-glow"></div>
+
+<div class="astro-card-top">
+
+<div class="astro-card-icon">
+🪪
+</div>
+
+<div>
+<div class="astro-card-mini">
+CONSULTA
+</div>
+
+<div class="astro-card-title">
+CPF
+</div>
+</div>
+
+</div>
+
+<div class="astro-card-text">
+Consulta cadastral completa
+com dados premium integrados.
+</div>
+
+<div class="astro-card-input">
+
+<input
+type="text"
+placeholder="Digite o CPF"
+/>
+
+<button>
+Consultar
+</button>
+
+</div>
+
+</div>
+
+<!-- PLACA -->
+
+<div class="astro-card">
+
+<div class="astro-card-glow"></div>
+
+<div class="astro-card-top">
+
+<div class="astro-card-icon">
+🚘
+</div>
+
+<div>
+<div class="astro-card-mini">
+CONSULTA
+</div>
+
+<div class="astro-card-title">
+Placa
+</div>
+</div>
+
+</div>
+
+<div class="astro-card-text">
+Veículos, histórico,
+dados vinculados e muito mais.
+</div>
+
+<div class="astro-card-input">
+
+<input
+type="text"
+placeholder="Digite a placa"
+/>
+
+<button>
+Consultar
+</button>
+
+</div>
+
+</div>
+
+<!-- NOME -->
+
+<div class="astro-card">
+
+<div class="astro-card-glow"></div>
+
+<div class="astro-card-top">
+
+<div class="astro-card-icon">
+👤
+</div>
+
+<div>
+<div class="astro-card-mini">
+CONSULTA
+</div>
+
+<div class="astro-card-title">
+Nome
+</div>
+</div>
+
+</div>
+
+<div class="astro-card-text">
+Busca nominal integrada
+com múltiplas bases.
+</div>
+
+<div class="astro-card-input">
+
+<input
+type="text"
+placeholder="Digite o nome"
+/>
+
+<button>
+Consultar
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================================
+🚀 MODAL RESULTADO PREMIUM
+========================================= -->
+
+<div
+class="astro-modal"
+id="astroModal"
+>
+
+<div class="astro-modal-box">
+
+<div class="astro-modal-top">
+
+<div>
+
+<div class="astro-modal-mini">
+ASTRO RESULT
+</div>
+
+<div class="astro-modal-title">
+Consulta concluída
+</div>
+
+</div>
+
+<button
+class="astro-close"
+onclick="closeAstroModal()"
+>
+✕
+</button>
+
+</div>
+
+<div
+class="astro-modal-content"
+id="astroModalContent"
+></div>
+
+</div>
+
+</div>
+
+/* =========================================
+🚀 CONSULTA TELEFONE
+========================================= */
+
+async function consultarTelefone(){
+
+const telefone =
+document.getElementById("telefoneInput")
+.value
+.replace(/\D/g,"");
+
+if(
+telefone.length < 10
+){
+
+showErrorModal(
+"Número inválido",
+"Verifique o telefone digitado."
+);
+
+return;
+
+}
+
+openLoadingModal();
+
+try{
+
+const req = await fetch(
+`https://makima.online/api/consulta/telefone?telefone=${telefone}&apikey=bigmouthh`
+);
+
+const data = await req.json();
+
+if(
+!data ||
+data.status !== "ok"
+){
+
+showErrorModal(
+"Consulta não encontrada",
+"Não foi possível localizar registros."
+);
+
+return;
+
+}
+
+const resultado =
+data.resultado;
+
+const registros =
+resultado
+.split("REGISTRO")
+.slice(1);
+
+let html = "";
+
+registros.forEach((registro)=>{
+
+const nome =
+registro.match(/NOME:\s(.+)/)?.[1]
+|| "Sem informação";
+
+const cpf =
+registro.match(/CPF\/CNPJ:\s(.+)/)?.[1]
+|| "Sem informação";
+
+const nasc =
+registro.match(/DATA DE NASCIMENTO:\s(.+)/)?.[1]
+|| "Sem informação";
+
+const mae =
+registro.match(/NOME DA MÃE:\s(.+)/)?.[1]
+|| "Sem informação";
+
+const bairro =
+registro.match(/BAIRRO:\s(.+)/)?.[1]
+|| "Sem informação";
+
+const cidade =
+registro.match(/CIDADE:\s(.+)/)?.[1]
+|| "Sem informação";
+
+const uf =
+registro.match(/UF:\s(.+)/)?.[1]
+|| "Sem informação";
+
+html += `
+
+<div class="astro-result-card">
+<small>NOME</small>
+<b>${nome}</b>
+</div>
+
+<div class="astro-result-card">
+<small>CPF/CNPJ</small>
+<b>${cpf}</b>
+</div>
+
+<div class="astro-result-card">
+<small>NASCIMENTO</small>
+<b>${nasc}</b>
+</div>
+
+<div class="astro-result-card">
+<small>NOME DA MÃE</small>
+<b>${mae}</b>
+</div>
+
+<div class="astro-result-card">
+<small>BAIRRO</small>
+<b>${bairro}</b>
+</div>
+
+<div class="astro-result-card">
+<small>CIDADE • UF</small>
+<b>${cidade} - ${uf}</b>
+</div>
+
+`;
+
+});
+
+document
+.getElementById("astroModalContent")
+.innerHTML = html;
+
+document
+.getElementById("astroModal")
+.classList.add("show");
+
+}catch(err){
+
+showErrorModal(
+"Erro interno",
+"Tente novamente em instantes."
+);
+
+}
+
+}
+
+/* =========================================
+🚀 LOADING MODAL
+========================================= */
+
+function openLoadingModal(){
+
+document
+.getElementById("astroModalContent")
+.innerHTML = `
+
+<div style="
+width:100%;
+padding:60px 20px;
+text-align:center;
+grid-column:1/-1;
+">
+
+<div class="astro-loader"></div>
+
+<div style="
+font-size:18px;
+font-weight:700;
+margin-bottom:8px;
+">
+Sincronizando consulta...
+</div>
+
+<div style="
+font-size:13px;
+color:#94a3b8;
+">
+Astro está processando os registros
+</div>
+
+</div>
+
+`;
+
+document
+.getElementById("astroModal")
+.classList.add("show");
+
+}
+
+/* =========================================
+🚀 ERROR MODAL
+========================================= */
+
+function showErrorModal(
+title,
+text
+){
+
+document
+.getElementById("astroModalContent")
+.innerHTML = `
+
+<div style="
+width:100%;
+padding:50px 20px;
+text-align:center;
+grid-column:1/-1;
+">
+
+<div style="
+font-size:48px;
+margin-bottom:14px;
+">
+⚠️
+</div>
+
+<div style="
+font-size:26px;
+font-weight:800;
+margin-bottom:10px;
+">
+${title}
+</div>
+
+<div style="
+font-size:14px;
+line-height:1.8;
+color:#fca5a5;
+">
+${text}
+</div>
+
+</div>
+
+`;
+
+document
+.getElementById("astroModal")
+.classList.add("show");
+
+}
+
+/* =========================================
+🚀 CLOSE MODAL
+========================================= */
+
+function closeAstroModal(){
+
+document
+.getElementById("astroModal")
+.classList.remove("show");
+
+}
+
+/* =========================================
+🚀 FECHAR AO CLICAR FORA
+========================================= */
+
+document
+.getElementById("astroModal")
+.addEventListener("click",e=>{
+
+if(
+e.target.id === "astroModal"
+){
+
+closeAstroModal();
+
+}
+
+});
+
+/* =========================================
+🚀 ASTRO CONSULT SLIDER
+========================================= */
+
+.astro-consult-wrapper{
+position:relative;
+}
+
+.astro-slider{
+
+display:flex;
+gap:18px;
+
+overflow-x:auto;
+
+scroll-snap-type:x mandatory;
+
+padding-bottom:8px;
+
+scrollbar-width:none;
+}
+
+.astro-slider::-webkit-scrollbar{
+display:none;
+}
+
+.astro-card{
+
+position:relative;
+
+overflow:hidden;
+
+min-width:320px;
+max-width:320px;
+
+padding:24px;
+
+border-radius:30px;
+
+scroll-snap-align:start;
+
+background:
+linear-gradient(
+180deg,
+rgba(15,23,42,.95),
+rgba(2,6,23,.98)
+);
+
+border:
+1px solid rgba(255,255,255,.06);
+
+transition:.35s;
+}
+
+.astro-card:hover{
+
+transform:
+translateY(-6px);
+
+border-color:
+rgba(168,85,247,.28);
+
+box-shadow:
+0 25px 70px rgba(0,0,0,.55);
+}
+
+.astro-card-glow{
+
+position:absolute;
+
+top:-80px;
+right:-80px;
+
+width:220px;
+height:220px;
+
+border-radius:50%;
+
+background:
+radial-gradient(
+circle,
+rgba(168,85,247,.18),
+transparent 70%
+);
+
+filter:blur(40px);
+}
+
+.astro-card-top{
+
+display:flex;
+align-items:center;
+gap:14px;
+
+margin-bottom:20px;
+
+position:relative;
+z-index:2;
+}
+
+.astro-card-icon{
+
+width:58px;
+height:58px;
+
+border-radius:20px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-size:24px;
+
+background:
+linear-gradient(
+135deg,
+rgba(168,85,247,.25),
+rgba(59,130,246,.25)
+);
+
+border:
+1px solid rgba(255,255,255,.08);
+}
+
+.astro-card-mini{
+
+font-size:10px;
+font-weight:700;
+letter-spacing:1px;
+
+color:#c084fc;
+
+margin-bottom:4px;
+}
+
+.astro-card-title{
+
+font-size:24px;
+font-weight:800;
+}
+
+.astro-card-text{
+
+font-size:14px;
+line-height:1.7;
+
+color:#94a3b8;
+
+margin-bottom:24px;
+
+position:relative;
+z-index:2;
+}
+
+.astro-card-input{
+position:relative;
+z-index:2;
+}
+
+.astro-card-input input{
+
+width:100%;
+height:56px;
+
+padding:0 18px;
+
+border:none;
+outline:none;
+
+border-radius:18px;
+
+background:
+rgba(255,255,255,.04);
+
+border:
+1px solid rgba(255,255,255,.06);
+
+color:#fff;
+
+font-size:14px;
+font-weight:600;
+
+margin-bottom:14px;
+}
+
+.astro-card-input input:focus{
+
+border-color:
+rgba(168,85,247,.45);
+
+box-shadow:
+0 0 0 4px rgba(168,85,247,.10);
+}
+
+.astro-card-input button{
+
+width:100%;
+height:56px;
+
+border:none;
+cursor:pointer;
+
+border-radius:18px;
+
+color:#fff;
+
+font-size:14px;
+font-weight:700;
+
+background:
+linear-gradient(
+135deg,
+rgba(168,85,247,.35),
+rgba(59,130,246,.35)
+);
+
+border:
+1px solid rgba(255,255,255,.08);
+
+transition:.25s;
+}
+
+.astro-card-input button:hover{
+
+transform:
+translateY(-3px);
+
+box-shadow:
+0 12px 35px rgba(168,85,247,.22);
+}
+
+/* =========================================
+🚀 MODAL PREMIUM
+========================================= */
+
+.astro-modal{
+
+position:fixed;
+inset:0;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+padding:20px;
+
+background:
+rgba(2,6,23,.82);
+
+backdrop-filter:blur(18px);
+
+opacity:0;
+visibility:hidden;
+
+transition:.35s;
+
+z-index:99999;
+}
+
+.astro-modal.show{
+opacity:1;
+visibility:visible;
+}
+
+.astro-modal-box{
+
+position:relative;
+
+width:100%;
+max-width:950px;
+
+max-height:92vh;
+
+overflow:auto;
+
+padding:28px;
+
+border-radius:34px;
+
+background:
+linear-gradient(
+180deg,
+rgba(15,23,42,.96),
+rgba(2,6,23,.99)
+);
+
+border:
+1px solid rgba(255,255,255,.08);
+
+box-shadow:
+0 40px 120px rgba(0,0,0,.8),
+0 0 80px rgba(168,85,247,.18);
+
+transform:
+scale(.92);
+
+transition:.35s;
+}
+
+.astro-modal.show .astro-modal-box{
+transform:scale(1);
+}
+
+.astro-modal-top{
+
+display:flex;
+align-items:center;
+justify-content:space-between;
+
+margin-bottom:26px;
+}
+
+.astro-modal-mini{
+
+font-size:11px;
+font-weight:700;
+letter-spacing:1px;
+
+color:#c084fc;
+
+margin-bottom:6px;
+}
+
+.astro-modal-title{
+
+font-size:34px;
+font-weight:800;
+
+letter-spacing:-2px;
+}
+
+.astro-close{
+
+width:52px;
+height:52px;
+
+border:none;
+cursor:pointer;
+
+border-radius:18px;
+
+font-size:18px;
+color:#fff;
+
+background:
+rgba(255,255,255,.05);
+
+border:
+1px solid rgba(255,255,255,.06);
+}
+
+.astro-modal-content{
+
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(240px,1fr));
+
+gap:18px;
+}
+
+.astro-result-card{
+
+padding:20px;
+
+border-radius:24px;
+
+background:
+rgba(255,255,255,.03);
+
+border:
+1px solid rgba(255,255,255,.06);
+
+animation:fadeUp .4s ease;
+}
+
+.astro-result-card small{
+
+display:block;
+
+font-size:11px;
+
+opacity:.5;
+
+margin-bottom:8px;
+}
+
+.astro-result-card b{
+
+font-size:15px;
+line-height:1.7;
+
+word-break:break-word;
+}
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(12px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
 /* =========================
 MINI APP HTML
 ========================= */
