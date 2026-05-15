@@ -5,7 +5,7 @@ async fetch(request, env) {
 const url = new URL(request.url)
 
 /* =========================
-MINI APP
+APPMINI
 ========================= */
 
 if (url.pathname === "/app") {
