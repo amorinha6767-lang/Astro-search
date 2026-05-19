@@ -4109,7 +4109,7 @@ display:none;
     </a>
 
     <a
-      href="https://t.me/consultasdedados_bot"
+      href="https://t.me/consultafree_bot"
       target="_blank"
       class="topbar-btn"
     >
@@ -4149,7 +4149,7 @@ e recursos avançados desbloqueados em segundos.
 <div class="hero-actions">
 
 <a
-href="https://t.me/consultasdedados_bot"
+href="https://t.me/consultafree_bot"
 target="_blank"
 class="btn btn-primary"
 >
@@ -7085,7 +7085,7 @@ pointer-events:none;
   </a>
 
   <a
-    href="https://t.me/consultasdedados_bot"
+    href="https://t.me/consultafree_bot"
     target="_blank"
     class="topbar-btn"
   >
@@ -7129,7 +7129,7 @@ pointer-events:none;
     ${results.length} resultado(s)
   </div>
 
-  <a class="btn btn-primary" href="https://t.me/consultasdedados_bot" target="_blank">
+  <a class="btn btn-primary" href="https://t.me/consultafree_bot" target="_blank">
     Abrir no bot
   </a>
 </div>
@@ -8383,7 +8383,7 @@ o acesso premium ilimitado.
 <div class="actions">
 
 <a
-href="https://t.me/consultasdedados_bot"
+href="https://t.me/consultafree_"
 target="_blank"
 class="btn btn-primary"
 >
