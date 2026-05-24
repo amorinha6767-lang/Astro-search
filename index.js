@@ -5057,30 +5057,33 @@ pointer-events:none;
 
 }
 
-/* =========================
-   💳 PAYMENT MODAL
-========================= */
+/* =====================================
+   💳 MODAL FIX MOBILE
+===================================== */
 
 .modal{
+
   position:fixed;
   inset:0;
-
-  background:rgba(2,6,23,.78);
-
-  backdrop-filter:blur(18px);
 
   display:flex;
   align-items:center;
   justify-content:center;
 
-  padding:18px;
+  padding:16px;
+
+  overflow:hidden;
+
+  background:rgba(2,6,23,.86);
+
+  backdrop-filter:blur(18px);
 
   opacity:0;
   visibility:hidden;
 
   transition:.35s ease;
 
-  z-index:9999;
+  z-index:999999;
 }
 
 .modal.show{
@@ -5089,20 +5092,21 @@ pointer-events:none;
 }
 
 .modal-box{
-  position:relative;
 
   width:100%;
   max-width:420px;
 
-  border-radius:28px;
+  max-height:90vh;
 
-  overflow:hidden;
+  overflow-y:auto;
+
+  border-radius:28px;
 
   background:
     linear-gradient(
       180deg,
-      rgba(15,23,42,.96),
-      rgba(2,6,23,.98)
+      rgba(15,23,42,.98),
+      rgba(2,6,23,.99)
     );
 
   border:1px solid rgba(255,255,255,.08);
@@ -5114,6 +5118,8 @@ pointer-events:none;
   transform:translateY(20px) scale(.94);
 
   transition:.35s ease;
+
+  -webkit-overflow-scrolling:touch;
 }
 
 .modal.show .modal-box{
@@ -6765,10 +6771,21 @@ function openPayment(plan){
   document.getElementById("modalPlanName")
     .innerText = plan
 
-  document.getElementById("paymentModal")
-    .classList.add("show")
+  const modal =
+    document.getElementById("paymentModal")
+
+  modal.classList.add("show")
 
   document.body.style.overflow = "hidden"
+
+  modal.scrollTop = 0
+
+  const box = modal.querySelector(".modal-box")
+
+  if(box){
+    box.scrollTop = 0
+  }
+
 }
 
 function closePayment(){
