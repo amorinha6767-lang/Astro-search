@@ -4009,13 +4009,31 @@ PAYMENT
 
 function openPayment(plan){
 
-document
-.getElementById("modalPlanName")
-.innerText = plan;
+  const modal =
+    document.getElementById("paymentModal")
 
-document
-.getElementById("paymentModal")
-.classList.add("show");
+  document.getElementById("modalPlanName")
+    .innerText = plan
+
+  modal.classList.add("show")
+
+  // trava body
+  document.body.style.overflow = "hidden"
+
+  // força topo
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  })
+
+  // reset modal
+  modal.scrollTop = 0
+
+  const box = modal.querySelector(".modal-box")
+
+  if(box){
+    box.scrollTop = 0
+  }
 
 }
 
@@ -6592,6 +6610,368 @@ ${results.map((p,i)=>`
   </div>
 
 </div>
+
+<style>
+
+/* =====================================
+   💳 MODAL FIX DEFINITIVO
+===================================== */
+
+.modal{
+
+  position:fixed;
+  inset:0;
+
+  z-index:9999999;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:16px;
+
+  overflow-y:auto;
+
+  background:rgba(2,6,23,.86);
+
+  backdrop-filter:blur(18px);
+
+  opacity:0;
+  visibility:hidden;
+
+  transition:.35s ease;
+
+  pointer-events:auto;
+
+  transform:translateZ(9999px);
+
+  -webkit-overflow-scrolling:touch;
+}
+
+.modal.show{
+
+  opacity:1;
+  visibility:visible;
+  display:flex;
+}
+
+.modal-box{
+
+  position:relative;
+  z-index:1000001;
+
+  width:100%;
+  max-width:420px;
+
+  max-height:90vh;
+
+  overflow-y:auto;
+
+  border-radius:28px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(15,23,42,.98),
+      rgba(2,6,23,.99)
+    );
+
+  border:1px solid rgba(255,255,255,.08);
+
+  box-shadow:
+    0 40px 120px rgba(0,0,0,.75),
+    0 0 60px rgba(168,85,247,.18);
+
+  transform:translateY(0) scale(1);
+
+  -webkit-overflow-scrolling:touch;
+}
+
+.modal-glow{
+  position:absolute;
+
+  top:-120px;
+  left:-40px;
+
+  width:260px;
+  height:260px;
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(168,85,247,.28),
+      transparent 70%
+    );
+
+  filter:blur(40px);
+}
+
+.modal-content{
+  position:relative;
+  z-index:2;
+
+  padding:24px;
+}
+
+.modal-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  margin-bottom:18px;
+}
+
+.modal-title{
+  font-size:20px;
+  font-weight:700;
+}
+
+.close-modal{
+
+  width:34px;
+  height:34px;
+
+  border:none;
+  outline:none;
+
+  border-radius:12px;
+
+  cursor:pointer;
+
+  color:#fff;
+
+  background:rgba(255,255,255,.06);
+
+  transition:.2s;
+}
+
+.close-modal:hover{
+  background:rgba(255,255,255,.12);
+}
+
+.modal-plan{
+
+  padding:14px;
+
+  border-radius:18px;
+
+  background:rgba(255,255,255,.04);
+
+  border:1px solid rgba(255,255,255,.05);
+
+  margin-bottom:16px;
+}
+
+.modal-plan small{
+  display:block;
+  opacity:.55;
+  margin-bottom:4px;
+}
+
+.modal-plan b{
+  font-size:18px;
+}
+
+.pix-label{
+  font-size:12px;
+  opacity:.6;
+  margin-bottom:8px;
+}
+
+.pix-box{
+
+  display:flex;
+  align-items:center;
+  gap:10px;
+
+  padding:12px;
+
+  border-radius:16px;
+
+  background:rgba(255,255,255,.04);
+
+  border:1px solid rgba(255,255,255,.06);
+
+  margin-bottom:16px;
+}
+
+.pix-key{
+
+  flex:1;
+
+  font-size:12px;
+  line-height:1.5;
+
+  word-break:break-all;
+
+  color:#f8fafc;
+}
+
+.copy-pix{
+
+  min-width:42px;
+  height:42px;
+
+  border:none;
+
+  border-radius:14px;
+
+  cursor:pointer;
+
+  color:#fff;
+
+  font-size:16px;
+
+  background:rgba(255,255,255,.06);
+
+  transition:.2s;
+}
+
+.copy-pix:hover{
+  background:rgba(255,255,255,.12);
+  transform:scale(1.04);
+}
+
+.modal-text{
+
+  font-size:13px;
+  line-height:1.7;
+
+  color:#cbd5e1;
+
+  margin-bottom:18px;
+}
+
+.support-btn{
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  width:100%;
+  min-height:54px;
+
+  border-radius:18px;
+
+  text-decoration:none;
+  color:#fff;
+
+  font-weight:600;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(168,85,247,.28),
+      rgba(59,130,246,.28)
+    );
+
+  border:1px solid rgba(255,255,255,.08);
+
+  transition:.25s ease;
+}
+
+.support-btn:hover{
+
+  transform:translateY(-2px);
+
+  box-shadow:
+    0 10px 30px rgba(168,85,247,.22);
+}
+
+</style>
+
+<script>
+
+/* =====================================
+   💳 PAYMENT SYSTEM FIX
+===================================== */
+
+function openPayment(plan){
+
+  const modal =
+    document.getElementById("paymentModal")
+
+  document.getElementById("modalPlanName")
+    .innerText = plan
+
+  modal.classList.add("show")
+
+  document.body.style.overflow = "hidden"
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  })
+
+  modal.scrollTop = 0
+
+  const box =
+    modal.querySelector(".modal-box")
+
+  if(box){
+    box.scrollTop = 0
+  }
+
+}
+
+function closePayment(){
+
+  const modal =
+    document.getElementById("paymentModal")
+
+  modal.classList.remove("show")
+
+  document.body.style.overflow = ""
+}
+
+function copyPix(){
+
+  const key =
+    "de02994d-f391-4b9b-acf8-865b721d3082"
+
+  navigator.clipboard
+    .writeText(key)
+
+  const btn =
+    document.querySelector(".copy-pix")
+
+  btn.innerText = "✓"
+
+  setTimeout(()=>{
+    btn.innerText = "⧉"
+  },1400)
+}
+
+/* CLICK FORA FECHA */
+
+document
+.getElementById("paymentModal")
+.addEventListener("click", e=>{
+
+  if(e.target.id === "paymentModal"){
+    closePayment()
+  }
+
+})
+
+/* ESC FECHA */
+
+document.addEventListener("keydown",e=>{
+
+  if(
+    e.key === "Escape" &&
+    document
+      .getElementById("paymentModal")
+      .classList.contains("show")
+  ){
+    closePayment()
+  }
+
+})
+
+</script>
 
 <script>
 function copyCard(el){
