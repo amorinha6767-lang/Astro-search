@@ -6077,6 +6077,25 @@ pointer-events:none;
   }
 }
 
+.plan.premium {
+  border: 1px solid rgba(59,130,246,.45);
+  transform: scale(1.03);
+  box-shadow:
+    0 0 30px rgba(59,130,246,.25),
+    0 0 80px rgba(59,130,246,.15);
+}
+
+.plan.premium .btn {
+  background: linear-gradient(90deg,#2563eb,#3b82f6);
+  color: #fff;
+  font-weight: 700;
+}
+
+.tag.basic {
+  background: rgba(255,255,255,.08);
+  color: #cbd5e1;
+}
+
 </style>
 </head>
 
@@ -6219,7 +6238,7 @@ ${results.map((p,i)=>`
        💎 DIÁRIO
   ========================= -->
   <div class="plan">
-  <div class="aurora"></div>
+    <div class="aurora"></div>
 
     <div class="plan-particles">
       <span style="left:8%;animation-duration:7s"></span>
@@ -6232,75 +6251,35 @@ ${results.map((p,i)=>`
 
     <div>
 
+      <div class="plan-header">
+        <span class="tag basic">
+          CUSTO BENEFÍCIO
+        </span>
+      </div>
+
       <div class="plan-title">
         Diário
       </div>
 
       <div class="price">
         <span class="new-price">
-          R$14,90
+          R$15,00
         </span>
       </div>
 
       <div class="features">
         <div>✦ Acesso por 24 horas</div>
-        <div>✦ Consultas básicas</div>
+        <div>✦ Consultas essenciais</div>
         <div>✦ Liberação imediata</div>
         <div>✦ Suporte rápido</div>
       </div>
 
     </div>
 
-<button class="btn"
-        onclick="openPayment('Plano Diário • R$14,90')">
-  Adquirir
-</button>
-
-  </div>
-
-  <!-- =========================
-       🚀 MENSAL
-  ========================= -->
-  <div class="plan highlight">
-  <div class="aurora"></div>
-
-    <div class="plan-particles">
-      <span style="left:6%;animation-duration:6s"></span>
-      <span style="left:20%;animation-duration:9s"></span>
-      <span style="left:34%;animation-duration:7s"></span>
-      <span style="left:52%;animation-duration:11s"></span>
-      <span style="left:70%;animation-duration:8s"></span>
-      <span style="left:88%;animation-duration:10s"></span>
-    </div>
-
-    <div>
-
-      <div class="plan-header">
-        <span class="tag best">MAIS VENDIDO</span>
-      </div>
-
-      <div class="plan-title">
-        Semanal
-      </div>
-
-      <div class="price">
-        <span class="new-price">
-          R$24,90
-        </span>
-      </div>
-
-      <div class="features">
-        <div>✦ Consultas ilimitadas</div>
-        <div>✦ Prioridade no sistema</div>
-        <div>✦ Atualizações premium</div>
-      </div>
-
-    </div>
-
-<button class="btn"
-        onclick="openPayment('Plano Semanal • R$24,90')">
-  Adquirir
-</button>
+    <button class="btn"
+            onclick="openPayment('Plano Diário • R$15,00')">
+      Adquirir acesso
+    </button>
 
   </div>
 
@@ -6308,12 +6287,13 @@ ${results.map((p,i)=>`
        👑 VITALÍCIO
   ========================= -->
   <div class="plan premium">
-  <div class="top-stars">
-  <span>✦</span>
-  <span>✧</span>
-  <span>✦</span>
-</div>
-  <div class="aurora"></div>
+    <div class="top-stars">
+      <span>✦</span>
+      <span>✧</span>
+      <span>✦</span>
+    </div>
+
+    <div class="aurora"></div>
 
     <div class="plan-particles">
       <span style="left:5%;animation-duration:8s"></span>
@@ -6328,7 +6308,7 @@ ${results.map((p,i)=>`
     <div>
 
       <div class="plan-header">
-        <span class="tag offer">OFERTA</span>
+        <span class="tag offer">MELHOR OFERTA</span>
         <span class="tag lifetime">ILIMITADO</span>
       </div>
 
@@ -6337,18 +6317,21 @@ ${results.map((p,i)=>`
       </div>
 
       <div class="price">
-        <span class="old-price">R$50</span>
+
+        <span class="old-price">
+          R$50
+        </span>
 
         <span class="new-price">
           R$20,90
         </span>
+
       </div>
 
       <div class="features">
-        <div>✦ Acesso vitalício</div>
+        <div>✦ Acesso ilimitado para sempre</div>
         <div>✦ Tudo desbloqueado</div>
-        <div>✦ Sem limites</div>
-        <div>✦ Acesso aos códigos</div>
+        <div>✦ Sem limites de consultas</div>
         <div>✦ Recursos premium</div>
         <div>✦ Prioridade máxima</div>
         <div>✦ Atualizações futuras grátis</div>
@@ -6356,15 +6339,14 @@ ${results.map((p,i)=>`
 
     </div>
 
-<button class="btn"
-        onclick="openPayment('Plano Vitalício • R$20,90')">
-  🚀 Desbloquear
-</button>
+    <button class="btn"
+            onclick="openPayment('Plano Vitalício • R$20,90')">
+      🚀 Desbloquear ilimitado
+    </button>
 
   </div>
 
 </div>
-
 <div class="modal" id="paymentModal">
 
   <div class="modal-box">
