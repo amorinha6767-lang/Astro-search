@@ -6195,10 +6195,9 @@ pointer-events:none;
     ${results.length} resultado(s)
   </div>
 
-  <a class="btn btn-primary" href="https://t.me/consultafree_bot" target="_blank">
+<button class="btn btn-primary" id="openBot">
     Abrir no bot
-  </a>
-</div>
+</button>
 
 ${results.map((p,i)=>`
 <div class="card">
@@ -6443,6 +6442,16 @@ function toggleSection(el){
   const section = el.parentElement
   section.classList.toggle("closed")
 }
+
+document
+.getElementById("openBot")
+.onclick = () => {
+
+    Telegram.WebApp.openTelegramLink(
+        "https://t.me/consultafree_bot"
+    );
+
+};
 
 const cards = document.querySelectorAll(".card");
 
