@@ -5066,6 +5066,8 @@ pointer-events:none;
   position:fixed;
   inset:0;
 
+  overscroll-behavior:contain;
+
   display:flex;
   align-items:center;
   justify-content:center;
@@ -5097,6 +5099,8 @@ pointer-events:none;
   max-width:420px;
 
   max-height:90vh;
+
+  scroll-behavior:smooth;
 
   overflow-y:auto;
 
@@ -6857,15 +6861,6 @@ document.querySelectorAll(".plan").forEach(card=>{
   });
 
 });
-
-function openPayment(plan){
-
-  document.getElementById("modalPlanName")
-    .innerText = plan
-
-  document.getElementById("paymentModal")
-    .classList.add("show")
-}
 
 function closePayment(){
 
