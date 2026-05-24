@@ -6096,6 +6096,138 @@ pointer-events:none;
   color: #cbd5e1;
 }
 
+/* =====================================
+   🚀 PREMIUM SECTION
+===================================== */
+
+.plans-wrapper{
+
+  position:relative;
+
+  margin-top:42px;
+  padding-top:10px;
+}
+
+.plans-head{
+
+  text-align:center;
+
+  margin-bottom:24px;
+}
+
+.plans-mini{
+
+  font-size:11px;
+  font-weight:700;
+
+  letter-spacing:2px;
+
+  color:#a855f7;
+
+  margin-bottom:10px;
+}
+
+.plans-head h2{
+
+  font-size:30px;
+  font-weight:800;
+
+  letter-spacing:-1px;
+
+  color:#fff;
+
+  margin-bottom:10px;
+}
+
+.plans-head p{
+
+  max-width:520px;
+
+  margin:0 auto;
+
+  color:#94a3b8;
+
+  font-size:14px;
+  line-height:1.7;
+}
+
+/* =====================================
+   💳 MODAL FIX
+===================================== */
+
+.modal{
+
+  position:fixed;
+  inset:0;
+
+  overflow-y:auto;
+
+  padding:24px 16px;
+
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+
+  background:rgba(2,6,23,.82);
+
+  backdrop-filter:blur(18px);
+
+  opacity:0;
+  visibility:hidden;
+
+  transition:.35s ease;
+
+  z-index:9999;
+}
+
+.modal.show{
+  opacity:1;
+  visibility:visible;
+}
+
+.modal-box{
+
+  width:100%;
+  max-width:420px;
+
+  margin-top:30px;
+  margin-bottom:30px;
+}
+
+/* =====================================
+   👑 PREMIUM PLAN
+===================================== */
+
+.plan.premium {
+
+  border: 1px solid rgba(59,130,246,.45);
+
+  transform: scale(1.03);
+
+  box-shadow:
+    0 0 30px rgba(59,130,246,.25),
+    0 0 80px rgba(59,130,246,.15);
+}
+
+.plan.premium .btn {
+
+  background:
+    linear-gradient(
+      90deg,
+      #2563eb,
+      #3b82f6
+    );
+
+  color:#fff;
+  font-weight:700;
+}
+
+.tag.basic {
+
+  background:rgba(255,255,255,.08);
+  color:#cbd5e1;
+}
+
 </style>
 </head>
 
@@ -6232,121 +6364,158 @@ ${results.map((p,i)=>`
 </div>
 `).join("")}
 
-<div class="plan-box" id="plansSection">
+<!-- =====================================
+     🚀 ASTRO PREMIUM SECTION
+===================================== -->
 
-  <!-- =========================
-       💎 DIÁRIO
-  ========================= -->
-  <div class="plan">
-    <div class="aurora"></div>
+<section class="plans-wrapper">
 
-    <div class="plan-particles">
-      <span style="left:8%;animation-duration:7s"></span>
-      <span style="left:18%;animation-duration:11s"></span>
-      <span style="left:32%;animation-duration:9s"></span>
-      <span style="left:48%;animation-duration:13s"></span>
-      <span style="left:66%;animation-duration:8s"></span>
-      <span style="left:82%;animation-duration:10s"></span>
+  <div class="plans-head">
+
+    <div class="plans-mini">
+      ASTRO PREMIUM
     </div>
 
-    <div>
+    <h2>
+      Desbloqueie acesso ilimitado
+    </h2>
 
-      <div class="plan-header">
-        <span class="tag basic">
-          CUSTO BENEFÍCIO
-        </span>
-      </div>
-
-      <div class="plan-title">
-        Diário
-      </div>
-
-      <div class="price">
-        <span class="new-price">
-          R$15,00
-        </span>
-      </div>
-
-      <div class="features">
-        <div>✦ Acesso por 24 horas</div>
-        <div>✦ Consultas essenciais</div>
-        <div>✦ Liberação imediata</div>
-        <div>✦ Suporte rápido</div>
-      </div>
-
-    </div>
-
-    <button class="btn"
-            onclick="openPayment('Plano Diário • R$15,00')">
-      Adquirir acesso
-    </button>
+    <p>
+      Consultas premium, acesso vitalício
+      e recursos avançados liberados instantaneamente.
+    </p>
 
   </div>
 
-  <!-- =========================
-       👑 VITALÍCIO
-  ========================= -->
-  <div class="plan premium">
-    <div class="top-stars">
-      <span>✦</span>
-      <span>✧</span>
-      <span>✦</span>
-    </div>
+  <div class="plan-box" id="plansSection">
 
-    <div class="aurora"></div>
+    <!-- =========================
+         💎 DIÁRIO
+    ========================= -->
+    <div class="plan">
 
-    <div class="plan-particles">
-      <span style="left:5%;animation-duration:8s"></span>
-      <span style="left:16%;animation-duration:12s"></span>
-      <span style="left:28%;animation-duration:7s"></span>
-      <span style="left:44%;animation-duration:10s"></span>
-      <span style="left:58%;animation-duration:9s"></span>
-      <span style="left:74%;animation-duration:13s"></span>
-      <span style="left:90%;animation-duration:8s"></span>
-    </div>
+      <div class="aurora"></div>
 
-    <div>
-
-      <div class="plan-header">
-        <span class="tag offer">MELHOR OFERTA</span>
-        <span class="tag lifetime">ILIMITADO</span>
+      <div class="plan-particles">
+        <span style="left:8%;animation-duration:7s"></span>
+        <span style="left:18%;animation-duration:11s"></span>
+        <span style="left:32%;animation-duration:9s"></span>
+        <span style="left:48%;animation-duration:13s"></span>
+        <span style="left:66%;animation-duration:8s"></span>
+        <span style="left:82%;animation-duration:10s"></span>
       </div>
 
-      <div class="plan-title">
-        Vitalício
+      <div>
+
+        <div class="plan-header">
+          <span class="tag basic">
+            CUSTO BENEFÍCIO
+          </span>
+        </div>
+
+        <div class="plan-title">
+          Diário
+        </div>
+
+        <div class="price">
+          <span class="new-price">
+            R$15,00
+          </span>
+        </div>
+
+        <div class="features">
+          <div>✦ Acesso por 24 horas</div>
+          <div>✦ Consultas essenciais</div>
+          <div>✦ Liberação imediata</div>
+          <div>✦ Suporte rápido</div>
+        </div>
+
       </div>
 
-      <div class="price">
-
-        <span class="old-price">
-          R$50
-        </span>
-
-        <span class="new-price">
-          R$20,90
-        </span>
-
-      </div>
-
-      <div class="features">
-        <div>✦ Acesso ilimitado para sempre</div>
-        <div>✦ Tudo desbloqueado</div>
-        <div>✦ Sem limites de consultas</div>
-        <div>✦ Recursos premium</div>
-        <div>✦ Prioridade máxima</div>
-        <div>✦ Atualizações futuras grátis</div>
-      </div>
+      <button class="btn"
+              onclick="openPayment('Plano Diário • R$15,00')">
+        Adquirir acesso
+      </button>
 
     </div>
 
-    <button class="btn"
-            onclick="openPayment('Plano Vitalício • R$20,90')">
-      🚀 Desbloquear ilimitado
-    </button>
+    <!-- =========================
+         👑 VITALÍCIO
+    ========================= -->
+    <div class="plan premium">
+
+      <div class="top-stars">
+        <span>✦</span>
+        <span>✧</span>
+        <span>✦</span>
+      </div>
+
+      <div class="aurora"></div>
+
+      <div class="plan-particles">
+        <span style="left:5%;animation-duration:8s"></span>
+        <span style="left:16%;animation-duration:12s"></span>
+        <span style="left:28%;animation-duration:7s"></span>
+        <span style="left:44%;animation-duration:10s"></span>
+        <span style="left:58%;animation-duration:9s"></span>
+        <span style="left:74%;animation-duration:13s"></span>
+        <span style="left:90%;animation-duration:8s"></span>
+      </div>
+
+      <div>
+
+        <div class="plan-header">
+          <span class="tag offer">
+            MELHOR OFERTA
+          </span>
+
+          <span class="tag lifetime">
+            ILIMITADO
+          </span>
+        </div>
+
+        <div class="plan-title">
+          Vitalício
+        </div>
+
+        <div class="price">
+
+          <span class="old-price">
+            R$50
+          </span>
+
+          <span class="new-price">
+            R$20,90
+          </span>
+
+        </div>
+
+        <div class="features">
+          <div>✦ Acesso ilimitado para sempre</div>
+          <div>✦ Tudo desbloqueado</div>
+          <div>✦ Sem limites de consultas</div>
+          <div>✦ Recursos premium</div>
+          <div>✦ Prioridade máxima</div>
+          <div>✦ Atualizações futuras grátis</div>
+        </div>
+
+      </div>
+
+      <button class="btn"
+              onclick="openPayment('Plano Vitalício • R$20,90')">
+        🚀 Desbloquear ilimitado
+      </button>
+
+    </div>
 
   </div>
 
-</div>
+</section>
+
+<!-- =====================================
+     💳 PAYMENT MODAL
+===================================== -->
+
 <div class="modal" id="paymentModal">
 
   <div class="modal-box">
@@ -6370,7 +6539,9 @@ ${results.map((p,i)=>`
 
       <div class="modal-plan">
 
-        <small>Plano selecionado</small>
+        <small>
+          Plano selecionado
+        </small>
 
         <b id="modalPlanName">
           VIP
@@ -6397,8 +6568,7 @@ ${results.map((p,i)=>`
 
       <div class="modal-text">
         Após efetuar o pagamento, envie o comprovante
-        para o suporte e seu acesso será liberado
-        imediatamente.
+        para o suporte e seu acesso será liberado imediatamente.
       </div>
 
       <a href="https://t.me/astrosuporte"
@@ -6589,6 +6759,51 @@ function render(){
 }
 
 render();
+
+function openPayment(plan){
+
+  document.getElementById("modalPlanName")
+    .innerText = plan
+
+  document.getElementById("paymentModal")
+    .classList.add("show")
+
+  document.body.style.overflow = "hidden"
+}
+
+function closePayment(){
+
+  document.getElementById("paymentModal")
+    .classList.remove("show")
+
+  document.body.style.overflow = ""
+}
+
+function copyPix(){
+
+  const key =
+    "de02994d-f391-4b9b-acf8-865b721d3082"
+
+  navigator.clipboard.writeText(key)
+
+  const btn =
+    document.querySelector(".copy-pix")
+
+  btn.innerText = "✓"
+
+  setTimeout(()=>{
+    btn.innerText = "⧉"
+  },1400)
+}
+
+document.getElementById("paymentModal")
+.addEventListener("click", e=>{
+
+  if(e.target.id === "paymentModal"){
+    closePayment()
+  }
+
+})
 
 // 💎 PLANS 3D EFFECT
 
