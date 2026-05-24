@@ -3215,7 +3215,7 @@ e recursos avançados desbloqueados em segundos.
 <div class="hero-actions">
 
 <a
-href="https://t.me/consultasdedados_bot"
+href="https://t.me/consultafree_bot"
 target="_blank"
 class="btn btn-primary"
 >
@@ -6195,7 +6195,7 @@ pointer-events:none;
     ${results.length} resultado(s)
   </div>
 
-  <a class="btn btn-primary" href="https://t.me/consultasdedados_bot" target="_blank">
+  <a class="btn btn-primary" href="https://t.me/consultafree_bot" target="_blank">
     Abrir no bot
   </a>
 </div>
