@@ -3670,7 +3670,7 @@ Desbloquear
 <div class="plan plan-premium">
 
 <div class="plan-tag">
-VITALÍCIO
+ILIMITADO
 </div>
 
 <div class="plan-title">
@@ -3690,10 +3690,10 @@ R$25<small>,00</small>
 </div>
 
 <div class="features">
-<div>✦ Acesso vitalício</div>
+<div>✦ Acesso ilimitado para sempre</div>
 <div>✦ Sem limites</div>
 <div>✦ Tudo desbloqueado</div>
-<div>✦ Recursos premium</div>
+<div>✦ Pagamento apenas uma vez</div>
 <div>✦ Atualizações futuras grátis</div>
 <div>✦ Prioridade absoluta</div>
 </div>
@@ -6354,7 +6354,7 @@ ${results.map((p,i)=>{
       </div>
 
       <button class="btn"
-              onclick="openPayment('Plano Vitalício • R$20,90')">
+              onclick="openPayment('Plano Vitalício • R$25,00')">
         🚀 Desbloquear ilimitado
       </button>
 
