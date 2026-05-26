@@ -6116,19 +6116,81 @@ pointer-events:none;
     Abrir no bot
 </button>
 
-${results.map((p,i)=>`
-<div class="card">
-  <div class="result-header">
-    <div class="title">Resultado ${i+1}</div>
-    <div class="copy" onclick="copyCard(this)">Copiar</div>
+${results.map((p,i)=>{
+
+  let nome = "-"
+  let cpf = "-"
+  let telefone = "-"
+
+  if(p.resultado){
+
+    p.resultado.forEach(sec=>{
+
+      if(sec.dados){
+
+        sec.dados.forEach(item=>{
+
+          const campo =
+            (item.campo || "").toUpperCase()
+
+          const valor =
+            item.valor || "-"
+
+          if(campo.includes("NOME") && nome === "-"){
+            nome = valor
+          }
+
+          if(campo.includes("CPF") && cpf === "-"){
+            cpf = valor
+          }
+
+          if(
+            (
+              campo.includes("TELEFONE") ||
+              campo.includes("CELULAR")
+            )
+            &&
+            telefone === "-"
+          ){
+            telefone = valor
+          }
+
+        })
+
+      }
+
+    })
+
+  }
+
+  return `
+  <div class="card">
+
+    <div class="result-header">
+      <div class="title">
+        Resultado ${i+1}
+      </div>
+
+      <div class="copy"
+           onclick="copyCard(this)">
+        Copiar
+      </div>
+    </div>
+
+    <div class="preview-name">
+      ${nome}
+    </div>
+
+    <div class="preview-sub">
+      ${telefone} • ${cpf}
+    </div>
+
+    ${renderFields(p)}
+
   </div>
+  `
 
-  <div class="preview-name">${p.nome || "-"}</div>
-  <div class="preview-sub">${p.telefone || "-"} • ${p.cpf || "-"}</div>
-
-  ${renderFields(p)}
-</div>
-`).join("")}
+}).join("")}
 
 <!-- =====================================
      🚀 ASTRO PREMIUM SECTION
