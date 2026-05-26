@@ -3562,11 +3562,11 @@ Quem usa recomenda
 
 <div class="social-text">
 “Sistema extremamente rápido.
-Dados completos carregando em segundos.”
+Achei tuuudo das pessoas só pelo telefone delas.”
 </div>
 
 <div class="social-user">
-— Rafael M.
+— Safira.
 </div>
 
 </div>
@@ -3579,11 +3579,11 @@ Dados completos carregando em segundos.”
 
 <div class="social-text">
 “Melhor plataforma privada que já utilizei.
-Interface absurda.”
+Consulta absurda.”
 </div>
 
 <div class="social-user">
-— Lucas T.
+— Blanc.
 </div>
 
 </div>
@@ -3595,8 +3595,8 @@ Interface absurda.”
 </div>
 
 <div class="social-text">
-“VIP vale muito.
-Velocidade e recursos premium liberados na hora.”
+“Vitalício vale muito.
+Velocidade e acesso liberados na hora.”
 </div>
 
 <div class="social-user">
@@ -3639,7 +3639,7 @@ Diário
 
 <div class="price">
 <div class="new">
-R$14<small>,90</small>
+R$15<small>,00</small>
 </div>
 </div>
 
@@ -3660,47 +3660,7 @@ R$14<small>,90</small>
 
 <button
 class="plan-btn"
-onclick="openPayment('Plano Diário • R$14,90')"
->
-Desbloquear
-</button>
-
-</div>
-
-<div class="plan">
-
-<div class="plan-tag">
-MAIS ESCOLHIDO
-</div>
-
-<div class="plan-title">
-Semanal
-</div>
-
-<div class="price">
-<div class="new">
-R$24<small>,90</small>
-</div>
-</div>
-
-<div class="features">
-<div>✦ Consultas ilimitadas</div>
-<div>✦ Prioridade máxima</div>
-<div>✦ Recursos premium</div>
-<div>✦ Atualizações liberadas</div>
-</div>
-
-<div class="live-buy">
-🔥 31 acessos liberados hoje
-</div>
-
-<div class="stock">
-<div class="stock-fill"></div>
-</div>
-
-<button
-class="plan-btn"
-onclick="openPayment('Plano Semanal • R$24,90')"
+onclick="openPayment('Plano Diário • R$15,00')"
 >
 Desbloquear
 </button>
@@ -3724,7 +3684,7 @@ R$50
 </div>
 
 <div class="new">
-R$20<small>,90</small>
+R$25<small>,00</small>
 </div>
 
 </div>
@@ -3748,7 +3708,7 @@ R$20<small>,90</small>
 
 <button
 class="plan-btn"
-onclick="openPayment('Plano Vitalício • R$20,90')"
+onclick="openPayment('Plano Vitalício • R$25,00')"
 >
 🚀 DESBLOQUEAR
 </button>
@@ -6377,7 +6337,7 @@ ${results.map((p,i)=>{
           </span>
 
           <span class="new-price">
-            R$20,90
+            R$25,00
           </span>
 
         </div>
@@ -7821,7 +7781,7 @@ Diário
 </div>
 
 <div class="plan-price">
-R$14<small>,90</small>
+R$15<small>,00</small>
 </div>
 
 </div>
@@ -7839,33 +7799,11 @@ R$14<small>,90</small>
 <div class="plan-top">
 
 <div class="plan-name">
-Semanal
-</div>
-
-<div class="plan-price">
-R$24<small>,90</small>
-</div>
-
-</div>
-
-<div class="plan-features">
-✦ Consultas ilimitadas<br>
-✦ Prioridade máxima<br>
-✦ Recursos premium
-</div>
-
-</div>
-
-<div class="plan">
-
-<div class="plan-top">
-
-<div class="plan-name">
 Vitalício
 </div>
 
 <div class="plan-price">
-R$20<small>,90</small>
+R$25<small>,00</small>
 </div>
 
 </div>
@@ -7885,7 +7823,7 @@ R$20<small>,90</small>
 <div class="footer">
 
 <div>
-Astro.app • Sistema premium online
+Astro • Sistema premium online
 </div>
 
 <div class="online">
