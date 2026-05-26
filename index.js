@@ -4121,6 +4121,10 @@ function renderFields(obj){
     let html = ""
 
     obj.resultado.forEach(secao=>{
+    
+    if(!secao.dados || !secao.dados.length){
+    return
+  }
 
       html += `
       <div class="result-block">
@@ -4132,26 +4136,41 @@ function renderFields(obj){
         <div class="result-lines">
       `
 
-      if(secao.dados && Array.isArray(secao.dados)){
+if(secao.dados && Array.isArray(secao.dados)){
 
-        secao.dados.forEach(item=>{
+  secao.dados.forEach(item=>{
 
-          html += `
-          <div class="premium-field">
+    const valor =
+      String(item.valor || "")
+      .trim()
 
-            <div class="premium-label">
-              ${item.campo || "INFO"}
-            </div>
+    // IGNORA CAMPOS VAZIOS
+    if(
+      !valor ||
+      valor === "-" ||
+      valor.toLowerCase() === "null" ||
+      valor.toLowerCase() === "undefined" ||
+      valor.toLowerCase() === "não encontrado"
+    ){
+      return
+    }
 
-            <div class="premium-value">
-              ${item.valor || "NÃO ENCONTRADO"}
-            </div>
+    html += `
+    <div class="premium-field">
 
-          </div>
-          `
-        })
+      <div class="premium-label">
+        ${item.campo || "INFO"}
+      </div>
 
-      }
+      <div class="premium-value">
+        ${valor}
+      </div>
+
+    </div>
+    `
+  })
+
+}
 
       html += `
         </div>
