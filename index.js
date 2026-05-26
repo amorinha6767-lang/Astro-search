@@ -3708,7 +3708,7 @@ R$25<small>,00</small>
 
 <button
 class="plan-btn"
-onclick="openPayment('Plano Vitalício • R$25,00')"
+onclick="openPayment('Plano Vitalício • R$10,00')"
 >
 🚀 DESBLOQUEAR
 </button>
@@ -6318,7 +6318,7 @@ ${results.map((p,i)=>{
 
         <div class="plan-header">
           <span class="tag offer">
-            MELHOR OFERTA
+            SÓ HOJE!
           </span>
 
           <span class="tag lifetime">
@@ -6337,7 +6337,7 @@ ${results.map((p,i)=>{
           </span>
 
           <span class="new-price">
-            R$25,00
+            R$10,00
           </span>
 
         </div>
@@ -6354,7 +6354,7 @@ ${results.map((p,i)=>{
       </div>
 
       <button class="btn"
-              onclick="openPayment('Plano Vitalício • R$25,00')">
+              onclick="openPayment('Plano Vitalício • R$10,00')">
         🚀 Desbloquear ilimitado
       </button>
 
