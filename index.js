@@ -3909,7 +3909,7 @@ e seu acesso será liberado imediatamente.
 </div>
 
 <a
-href="https://t.me/puxardados5"
+href="https://t.me/astrosuporte"
 target="_blank"
 class="support-btn"
 >
