@@ -4112,6 +4112,81 @@ function renderApp(data){
       .replace(/_/g," ")
       .replace(/\b\w/g,l=>l.toUpperCase())
   }
+  
+  function renderNested(data){
+
+  let html = ""
+
+  // ARRAY
+  if(Array.isArray(data)){
+
+    data.forEach(item=>{
+
+      html += `
+      <div class="premium-group">
+      `
+
+      html += renderNested(item)
+
+      html += `
+      </div>
+      `
+    })
+
+    return html
+  }
+
+  // OBJETO
+  if(typeof data === "object" && data !== null){
+
+    Object.entries(data).forEach(([key,value])=>{
+
+      // objeto/array
+      if(typeof value === "object"){
+
+        html += `
+        <div class="premium-subtitle">
+          ${key.replaceAll("_"," ").toUpperCase()}
+        </div>
+        `
+
+        html += renderNested(value)
+
+      }else{
+
+        const valor =
+          String(value || "").trim()
+
+        if(
+          !valor ||
+          valor === "-" ||
+          valor.toLowerCase() === "null" ||
+          valor.toLowerCase() === "undefined"
+        ){
+          return
+        }
+
+        html += `
+        <div class="premium-field">
+
+          <div class="premium-label">
+            ${key}
+          </div>
+
+          <div class="premium-value">
+            ${valor}
+          </div>
+
+        </div>
+        `
+      }
+    })
+
+    return html
+  }
+
+  return html
+}
 
 function renderFields(obj){
 
@@ -4136,39 +4211,9 @@ function renderFields(obj){
         <div class="result-lines">
       `
 
-if(secao.dados && Array.isArray(secao.dados)){
+if(secao.dados){
 
-  secao.dados.forEach(item=>{
-
-    const valor =
-      String(item.valor || "")
-      .trim()
-
-    // IGNORA CAMPOS VAZIOS
-    if(
-      !valor ||
-      valor === "-" ||
-      valor.toLowerCase() === "null" ||
-      valor.toLowerCase() === "undefined" ||
-      valor.toLowerCase() === "não encontrado"
-    ){
-      return
-    }
-
-    html += `
-    <div class="premium-field">
-
-      <div class="premium-label">
-        ${item.campo || "INFO"}
-      </div>
-
-      <div class="premium-value">
-        ${valor}
-      </div>
-
-    </div>
-    `
-  })
+  html += renderNested(secao.dados)
 
 }
 
