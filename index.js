@@ -2988,6 +2988,174 @@ display:none;
     );
 }
 
+/* =========================
+CONSULTA ONLINE
+========================= */
+
+.consulta-box{
+
+  position:relative;
+
+  overflow:hidden;
+
+  padding:32px;
+
+  border-radius:32px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(15,23,42,.95),
+      rgba(2,6,23,.96)
+    );
+
+  border:
+    1px solid rgba(255,255,255,.08);
+
+  box-shadow:
+    0 30px 90px rgba(0,0,0,.55);
+}
+
+.consulta-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(auto-fit,minmax(260px,1fr));
+
+  gap:18px;
+
+  margin-top:28px;
+}
+
+.consulta-card{
+
+  padding:20px;
+
+  border-radius:22px;
+
+  background:
+    rgba(255,255,255,.03);
+
+  border:
+    1px solid rgba(255,255,255,.06);
+}
+
+.consulta-card label{
+
+  display:block;
+
+  font-size:12px;
+
+  font-weight:700;
+
+  letter-spacing:1px;
+
+  color:#c084fc;
+
+  margin-bottom:10px;
+}
+
+.consulta-input{
+
+  width:100%;
+
+  height:54px;
+
+  border:none;
+  outline:none;
+
+  padding:0 16px;
+
+  border-radius:16px;
+
+  background:
+    rgba(255,255,255,.04);
+
+  color:#fff;
+
+  font-size:14px;
+
+  border:
+    1px solid rgba(255,255,255,.06);
+}
+
+.consulta-btn{
+
+  width:100%;
+
+  height:54px;
+
+  margin-top:14px;
+
+  border:none;
+
+  cursor:pointer;
+
+  border-radius:16px;
+
+  color:#fff;
+
+  font-size:14px;
+  font-weight:700;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(168,85,247,.35),
+      rgba(59,130,246,.35)
+    );
+
+  border:
+    1px solid rgba(255,255,255,.08);
+
+  transition:.25s;
+}
+
+.consulta-btn:hover{
+
+  transform:translateY(-3px);
+}
+
+.consulta-result{
+
+  margin-top:18px;
+
+  padding:18px;
+
+  border-radius:18px;
+
+  background:
+    rgba(255,255,255,.03);
+
+  border:
+    1px solid rgba(255,255,255,.06);
+
+  font-size:13px;
+
+  line-height:1.8;
+
+  color:#d1d5db;
+
+  white-space:pre-wrap;
+
+  display:none;
+}
+
+.consulta-loading{
+
+  opacity:.7;
+
+  animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+
+  0%{opacity:.4}
+  50%{opacity:1}
+  100%{opacity:.4}
+}
+
 @media(max-width:700px){
 
   .topbar{
@@ -3173,6 +3341,13 @@ display:none;
     >
       Planos
     </a>
+    
+    <a
+  href="#consultas-online"
+  class="topbar-link"
+>
+  Consultar Online
+</a>
 
     <a
       href="https://t.me/consultafree_bot"
@@ -3719,6 +3894,80 @@ onclick="openPayment('Plano Vitalício • R$10,00')"
 
 </section>
 
+<!-- CONSULTAS ONLINE -->
+
+<section
+  class="section"
+  id="consultas-online"
+>
+
+<div class="section-top">
+
+<div class="section-mini">
+CONSULTAS ONLINE
+</div>
+
+<div class="section-title">
+Consultar usando token
+</div>
+
+<div class="section-sub">
+
+Insira seu token premium e realize
+consultas online diretamente pelo painel Astro.
+
+</div>
+
+</div>
+
+<div class="consulta-box">
+
+<div class="consulta-grid">
+
+<div class="consulta-card">
+
+<label>TOKEN PREMIUM</label>
+
+<input
+  type="text"
+  id="tokenInput"
+  class="consulta-input"
+  placeholder="Digite seu token"
+/>
+
+</div>
+
+<div class="consulta-card">
+
+<label>CONSULTA POR NOME</label>
+
+<input
+  type="text"
+  id="nomeInput"
+  class="consulta-input"
+  placeholder="Digite o nome"
+/>
+
+<button
+  class="consulta-btn"
+  onclick="consultarNome()"
+>
+  CONSULTAR AGORA
+</button>
+
+</div>
+
+</div>
+
+<div
+  class="consulta-result"
+  id="consultaResultado"
+></div>
+
+</div>
+
+</section>
+
 <!-- FAQ -->
 
 <section class="section">
@@ -4047,6 +4296,103 @@ mockup.style.setProperty("--mx",x+"px");
 mockup.style.setProperty("--my",y+"px");
 
 });
+
+/* =========================
+CONSULTA ONLINE
+========================= */
+
+async function consultarNome(){
+
+  const token =
+    document.getElementById("tokenInput").value.trim()
+
+  const nome =
+    document.getElementById("nomeInput").value.trim()
+
+  const resultado =
+    document.getElementById("consultaResultado")
+
+  if(!token){
+
+    resultado.style.display = "block"
+
+    resultado.innerHTML =
+      "⚠️ Digite um token válido."
+
+    return
+  }
+
+  if(!nome){
+
+    resultado.style.display = "block"
+
+    resultado.innerHTML =
+      "⚠️ Digite um nome para consultar."
+
+    return
+  }
+
+  resultado.style.display = "block"
+
+  resultado.innerHTML =
+    '<div class="consulta-loading">🔎 Consultando base Astro...</div>'
+
+  try{
+
+    const req = await fetch(
+      \`https://boks.stherlionato.workers.dev/nome?token=\${token}&nome=\${encodeURIComponent(nome)}\`
+    )
+
+    const json = await req.json()
+
+    if(!json.status){
+
+      resultado.innerHTML =
+        "❌ Token inválido ou consulta não encontrada."
+
+      return
+    }
+
+    const pessoas =
+      json?.dados?.resultado?.dados?.pessoas || []
+
+    if(!pessoas.length){
+
+      resultado.innerHTML =
+        "⚠️ Nenhum resultado encontrado."
+
+      return
+    }
+
+    let html = ""
+
+    pessoas.forEach(p=>{
+
+      html += \`
+━━━━━━━━━━━━━━━━━━
+👤 NOME: \${p.nome}
+
+🪪 CPF: \${p.cpf}
+
+🎂 NASCIMENTO: \${p.nascimento}
+
+📍 CIDADE: \${p.cidade}/\${p.uf}
+
+━━━━━━━━━━━━━━━━━━
+
+\`
+    })
+
+    resultado.innerHTML = html
+
+  }catch(e){
+
+    resultado.innerHTML =
+      "❌ Erro ao consultar API."
+
+  }
+
+}
 
 </script>
 
