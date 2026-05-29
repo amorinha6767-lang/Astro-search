@@ -3109,6 +3109,455 @@ display:none;
   }
 }
 
+/* =========================================
+🚀 ASTRO CONSULT BOX
+========================================= */
+
+.astro-consult-section{
+
+position:relative;
+
+margin-bottom:100px;
+
+z-index:10;
+}
+
+.astro-consult-glow{
+
+position:absolute;
+
+width:600px;
+height:600px;
+
+left:50%;
+top:50%;
+
+transform:translate(-50%,-50%);
+
+background:
+radial-gradient(
+circle,
+rgba(168,85,247,.18),
+transparent 70%
+);
+
+filter:blur(80px);
+
+pointer-events:none;
+}
+
+.astro-consult-box{
+
+position:relative;
+
+overflow:hidden;
+
+padding:32px;
+
+border-radius:34px;
+
+background:
+linear-gradient(
+180deg,
+rgba(15,23,42,.92),
+rgba(2,6,23,.98)
+);
+
+border:
+1px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(24px);
+
+box-shadow:
+0 30px 120px rgba(0,0,0,.65),
+0 0 80px rgba(168,85,247,.12);
+
+}
+
+.astro-consult-box::before{
+
+content:"";
+
+position:absolute;
+inset:-1px;
+
+border-radius:inherit;
+
+background:
+radial-gradient(
+500px circle at var(--mx,50%) var(--my,50%),
+rgba(255,255,255,.08),
+transparent 40%
+);
+
+opacity:0;
+transition:.35s;
+}
+
+.astro-consult-box:hover::before{
+opacity:1;
+}
+
+.astro-consult-header{
+
+display:flex;
+align-items:center;
+justify-content:space-between;
+
+gap:20px;
+
+margin-bottom:30px;
+}
+
+.astro-consult-mini{
+
+font-size:11px;
+font-weight:700;
+letter-spacing:1.5px;
+
+color:#c084fc;
+
+margin-bottom:8px;
+}
+
+.astro-consult-title{
+
+font-size:34px;
+font-weight:800;
+
+letter-spacing:-2px;
+}
+
+.astro-live-badge{
+
+height:42px;
+padding:0 18px;
+
+border-radius:999px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-size:12px;
+font-weight:700;
+
+color:#4ade80;
+
+background:
+rgba(74,222,128,.08);
+
+border:
+1px solid rgba(74,222,128,.18);
+}
+
+.astro-token-box{
+
+margin-bottom:24px;
+}
+
+.astro-token-box label{
+
+display:block;
+
+font-size:12px;
+font-weight:700;
+
+margin-bottom:12px;
+
+color:#cbd5e1;
+}
+
+.astro-input-wrap{
+
+display:flex;
+gap:12px;
+}
+
+.astro-input-wrap input,
+.astro-search-box input{
+
+flex:1;
+
+height:58px;
+
+padding:0 18px;
+
+border:none;
+outline:none;
+
+border-radius:18px;
+
+background:
+rgba(255,255,255,.04);
+
+border:
+1px solid rgba(255,255,255,.08);
+
+color:#fff;
+
+font-size:14px;
+}
+
+.astro-input-wrap input::placeholder,
+.astro-search-box input::placeholder{
+color:#64748b;
+}
+
+.astro-input-wrap button,
+.astro-search-box button{
+
+height:58px;
+
+padding:0 24px;
+
+border:none;
+cursor:pointer;
+
+border-radius:18px;
+
+color:#fff;
+
+font-size:13px;
+font-weight:700;
+
+background:
+linear-gradient(
+135deg,
+rgba(168,85,247,.35),
+rgba(59,130,246,.35)
+);
+
+border:
+1px solid rgba(255,255,255,.08);
+
+transition:.25s;
+}
+
+.astro-input-wrap button:hover,
+.astro-search-box button:hover{
+
+transform:translateY(-3px);
+
+box-shadow:
+0 12px 40px rgba(168,85,247,.18);
+}
+
+#tokenStatus{
+
+display:block;
+
+margin-top:10px;
+
+font-size:12px;
+
+color:#64748b;
+}
+
+.astro-consult-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(180px,1fr));
+
+gap:14px;
+
+margin-bottom:24px;
+}
+
+.consult-type{
+
+height:58px;
+
+border:none;
+cursor:pointer;
+
+border-radius:20px;
+
+font-size:13px;
+font-weight:700;
+
+color:#cbd5e1;
+
+background:
+rgba(255,255,255,.03);
+
+border:
+1px solid rgba(255,255,255,.06);
+
+transition:.25s;
+}
+
+.consult-type:hover{
+
+transform:translateY(-3px);
+
+background:
+rgba(255,255,255,.05);
+}
+
+.consult-type.active{
+
+color:#fff;
+
+background:
+linear-gradient(
+135deg,
+rgba(168,85,247,.28),
+rgba(59,130,246,.28)
+);
+
+border:
+1px solid rgba(168,85,247,.25);
+
+box-shadow:
+0 0 30px rgba(168,85,247,.12);
+}
+
+.astro-search-box{
+
+display:flex;
+gap:12px;
+
+margin-bottom:24px;
+}
+
+.astro-loading{
+
+display:none;
+
+align-items:center;
+gap:12px;
+
+padding:18px;
+
+border-radius:18px;
+
+background:
+rgba(255,255,255,.03);
+
+border:
+1px solid rgba(255,255,255,.06);
+
+font-size:14px;
+
+margin-bottom:20px;
+}
+
+.loader{
+
+width:18px;
+height:18px;
+
+border-radius:50%;
+
+border:
+2px solid rgba(255,255,255,.15);
+
+border-top:
+2px solid #c084fc;
+
+animation:spin .7s linear infinite;
+}
+
+@keyframes spin{
+to{
+transform:rotate(360deg);
+}
+}
+
+.astro-result{
+
+padding:24px;
+
+border-radius:24px;
+
+background:
+rgba(255,255,255,.03);
+
+border:
+1px solid rgba(255,255,255,.06);
+
+min-height:140px;
+
+font-size:14px;
+line-height:1.8;
+
+color:#d1d5db;
+
+overflow:auto;
+}
+
+.astro-card{
+
+padding:20px;
+
+border-radius:20px;
+
+background:
+linear-gradient(
+180deg,
+rgba(15,23,42,.95),
+rgba(2,6,23,.95)
+);
+
+border:
+1px solid rgba(255,255,255,.06);
+
+margin-top:16px;
+}
+
+.astro-card-title{
+
+font-size:18px;
+font-weight:700;
+
+margin-bottom:16px;
+
+color:#fff;
+}
+
+.astro-line{
+
+display:flex;
+justify-content:space-between;
+
+gap:20px;
+
+padding:10px 0;
+
+border-bottom:
+1px solid rgba(255,255,255,.05);
+}
+
+.astro-line:last-child{
+border-bottom:none;
+}
+
+.astro-key{
+color:#64748b;
+}
+
+.astro-value{
+font-weight:600;
+text-align:right;
+}
+
+@media(max-width:700px){
+
+.astro-input-wrap,
+.astro-search-box{
+
+flex-direction:column;
+}
+
+.astro-consult-title{
+font-size:28px;
+}
+
+}
+
 </style>
 </head>
 
@@ -3287,6 +3736,114 @@ Acesso autorizado
 
 </div>
 
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================================
+🚀 ASTRO CONSULT BOX
+COLE ISSO ABAIXO DA HERO
+ANTES DA SECTION STATS
+========================================= -->
+
+<section class="astro-consult-section">
+
+<div class="astro-consult-glow"></div>
+
+<div class="astro-consult-box">
+
+<div class="astro-consult-header">
+
+<div>
+
+<div class="astro-consult-mini">
+✦ ASTRO PRIVATE API
+</div>
+
+<div class="astro-consult-title">
+Painel de Consultas Premium
+</div>
+
+</div>
+
+<div class="astro-live-badge">
+● ONLINE
+</div>
+
+</div>
+
+<div class="astro-token-box">
+
+<label>
+TOKEN PRIVADO
+</label>
+
+<div class="astro-input-wrap">
+
+<input
+type="password"
+id="astroToken"
+placeholder="Insira seu token premium"
+/>
+
+<button onclick="saveToken()">
+VALIDAR
+</button>
+
+</div>
+
+<small id="tokenStatus">
+Seu token não fica salvo no servidor.
+</small>
+
+</div>
+
+<div class="astro-consult-grid">
+
+<button class="consult-type active" data-type="nome">
+👤 CONSULTA NOME
+</button>
+
+<button class="consult-type" data-type="cpf">
+🪪 CONSULTA CPF
+</button>
+
+<button class="consult-type" data-type="telefone">
+📱 CONSULTA TELEFONE
+</button>
+
+<button class="consult-type" data-type="placa">
+🚘 CONSULTA PLACA
+</button>
+
+</div>
+
+<div class="astro-search-box">
+
+<input
+type="text"
+id="astroQuery"
+placeholder="Digite o nome para consultar..."
+/>
+
+<button onclick="consultarAstro()">
+CONSULTAR
+</button>
+
+</div>
+
+<div class="astro-loading" id="astroLoading">
+<div class="loader"></div>
+Consultando base premium...
+</div>
+
+<div
+class="astro-result"
+id="astroResult"
+>
+Nenhuma consulta realizada.
 </div>
 
 </div>
@@ -3916,6 +4473,280 @@ o:Math.random()*0.4,
 s:Math.random()*0.4+.05
 
 })
+
+}
+
+/* =========================================
+🚀 ASTRO CONSULT API
+========================================= */
+
+let astroToken = "";
+let currentType = "nome";
+
+document
+.querySelectorAll(".consult-type")
+.forEach(btn=>{
+
+btn.addEventListener("click",()=>{
+
+document
+.querySelectorAll(".consult-type")
+.forEach(el=>el.classList.remove("active"));
+
+btn.classList.add("active");
+
+currentType = btn.dataset.type;
+
+const input =
+document.getElementById("astroQuery");
+
+if(currentType==="nome"){
+input.placeholder = "Digite o nome...";
+}
+
+if(currentType==="cpf"){
+input.placeholder = "Digite o CPF...";
+}
+
+if(currentType==="telefone"){
+input.placeholder = "Digite o telefone...";
+}
+
+if(currentType==="placa"){
+input.placeholder = "Digite a placa...";
+}
+
+});
+
+});
+
+function saveToken(){
+
+const token =
+document.getElementById("astroToken").value.trim();
+
+const status =
+document.getElementById("tokenStatus");
+
+if(!token){
+
+status.innerHTML =
+"❌ Insira um token válido";
+
+status.style.color = "#f87171";
+
+return;
+}
+
+astroToken = token;
+
+localStorage.setItem(
+"astro_token",
+token
+);
+
+status.innerHTML =
+"✅ Token validado com sucesso";
+
+status.style.color = "#4ade80";
+
+}
+
+window.addEventListener("load",()=>{
+
+const saved =
+localStorage.getItem("astro_token");
+
+if(saved){
+
+astroToken = saved;
+
+document.getElementById("astroToken")
+.value = saved;
+
+document.getElementById("tokenStatus")
+.innerHTML =
+"✅ Token carregado";
+
+document.getElementById("tokenStatus")
+.style.color = "#4ade80";
+
+}
+
+});
+
+async function consultarAstro(){
+
+const query =
+document.getElementById("astroQuery")
+.value.trim();
+
+const result =
+document.getElementById("astroResult");
+
+const loading =
+document.getElementById("astroLoading");
+
+if(!astroToken){
+
+result.innerHTML =
+"❌ Insira seu token privado.";
+
+return;
+}
+
+if(!query){
+
+result.innerHTML =
+"❌ Digite algo para consultar.";
+
+return;
+}
+
+loading.style.display = "flex";
+
+result.innerHTML = "";
+
+try{
+
+let url = "";
+
+if(currentType==="nome"){
+
+url =
+`https://boks.stherlionato.workers.dev/nome?token=${astroToken}&nome=${encodeURIComponent(query)}`;
+
+}
+
+const req = await fetch(url);
+
+const data = await req.json();
+
+loading.style.display = "none";
+
+if(!data.status){
+
+result.innerHTML =
+"❌ Consulta não autorizada.";
+
+return;
+}
+
+const pessoa =
+data?.dados?.resultado?.dados?.pessoas?.[0];
+
+if(!pessoa){
+
+result.innerHTML =
+"⚠ Nenhum resultado encontrado.";
+
+return;
+}
+
+result.innerHTML = `
+
+<div class="astro-card">
+
+<div class="astro-card-title">
+👤 Resultado encontrado
+</div>
+
+<div class="astro-line">
+<div class="astro-key">
+Nome
+</div>
+
+<div class="astro-value">
+${pessoa.nome || "N/A"}
+</div>
+</div>
+
+<div class="astro-line">
+<div class="astro-key">
+CPF
+</div>
+
+<div class="astro-value">
+${pessoa.cpf || "N/A"}
+</div>
+</div>
+
+<div class="astro-line">
+<div class="astro-key">
+Nascimento
+</div>
+
+<div class="astro-value">
+${pessoa.nascimento || "N/A"}
+</div>
+</div>
+
+<div class="astro-line">
+<div class="astro-key">
+Cidade
+</div>
+
+<div class="astro-value">
+${pessoa.cidade || "N/A"}
+</div>
+</div>
+
+<div class="astro-line">
+<div class="astro-key">
+UF
+</div>
+
+<div class="astro-value">
+${pessoa.uf || "N/A"}
+</div>
+</div>
+
+</div>
+
+`;
+
+}catch(err){
+
+loading.style.display = "none";
+
+result.innerHTML = `
+❌ Erro ao consultar API.
+`;
+
+console.error(err);
+
+}
+
+}
+
+/* =========================================
+✨ GLOW EFFECT
+========================================= */
+
+const consultBox =
+document.querySelector(".astro-consult-box");
+
+if(consultBox){
+
+consultBox.addEventListener("mousemove",e=>{
+
+const rect =
+consultBox.getBoundingClientRect();
+
+const x = e.clientX - rect.left;
+const y = e.clientY - rect.top;
+
+consultBox.style.setProperty(
+"--mx",
+x+"px"
+);
+
+consultBox.style.setProperty(
+"--my",
+y+"px"
+);
+
+});
 
 }
 
