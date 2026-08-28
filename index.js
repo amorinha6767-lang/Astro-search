@@ -4199,6 +4199,7 @@ Mensal
 <div class="new">
 R$35<small>,00</small>
 </div>
+</div>
 
 <div class="features">
 <div>✦ Acesso por um mês</div>
