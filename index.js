@@ -4196,12 +4196,8 @@ Mensal
 
 <div class="price">
 
-<div class="old">
-R$50
-</div>
-
 <div class="new">
-R$25<small>,00</small>
+R$35<small>,00</small>
 </div>
 
 <div class="features">
