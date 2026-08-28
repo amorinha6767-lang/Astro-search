@@ -3942,24 +3942,6 @@ Acesso autorizado
 
 </div>
 
-</section>
-
-<!-- =========================================
-🚀 ASTRO CONSULT BOX
-COLE ISSO ABAIXO DA HERO
-ANTES DA SECTION STATS
-========================================= -->
-
-<section class="astro-consult-section">
-
-<div class="astro-consult-glow"></div>
-
-<div class="astro-consult-box">
-
-<div class="astro-consult-header">
-
-</section>
-
 <!-- STATS -->
 
 <section class="stats">
