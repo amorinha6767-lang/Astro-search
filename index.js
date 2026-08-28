@@ -4170,65 +4170,213 @@ Velocidade e acesso liberados na hora.”
 
 <section class="section" id="plans">
 
-  <div class="section-top">
+<div class="section-top">
 
-    <div class="section-mini">
-      PLANO
-    </div>
+<div class="section-mini">
+PLANOS
+</div>
 
-    <div class="section-title">
-      Desbloqueie seu acesso
-    </div>
+<div class="section-title">
+Escolha seu acesso
+</div>
 
-  </div>
+</div>
 
-  <div class="plan-box">
+<div class="plan-box">
 
-    <div class="plan plan-premium">
+<div class="plan">
 
-      <div class="plan-tag">
-        ILIMITADO
-      </div>
+<div class="plan-tag">
+ACESSO RÁPIDO
+</div>
 
-      <div class="plan-title">
-        Vitalício
-      </div>
+<div class="plan-title">
+Mensal
+</div>
 
-      <div class="price">
+<div class="price">
 
-        <div class="new">
-          R$20<small>,00</small>
-        </div>
+<div class="old">
+R$50
+</div>
 
-      </div>
+<div class="new">
+R$25<small>,00</small>
+</div>
 
-      <div class="features">
-        <div>✦ Acesso ilimitado para sempre</div>
-        <div>✦ Sem limites</div>
-        <div>✦ Tudo desbloqueado</div>
-        <div>✦ Pagamento apenas uma vez</div>
-        <div>✦ Atualizações futuras grátis</div>
-        <div>✦ Prioridade absoluta</div>
-      </div>
+<div class="features">
+<div>✦ Acesso por um mês</div>
+<div>✦ Consultas completas</div>
+<div>✦ Liberação imediata</div>
+<div>✦ Suporte rápido</div>
+</div>
 
-      <div class="live-buy">
-        🔥 53 desbloqueios hoje
-      </div>
+<div class="live-buy">
+🔥 12 acessos liberados hoje
+</div>
 
-      <div class="stock">
-        <div class="stock-fill"></div>
-      </div>
+<div class="stock">
+<div class="stock-fill"></div>
+</div>
 
-      <button
-        class="plan-btn"
-        onclick="openPayment('Plano Vitalício • R$20,00')"
-      >
-        🚀 DESBLOQUEAR
-      </button>
+<button
+class="plan-btn"
+onclick="openPayment('Plano mensal • R$35,00')"
+>
+Desbloquear
+</button>
 
-    </div>
+</div>
 
-  </div>
+<div class="plan plan-premium">
+
+<div class="plan-tag">
+ILIMITADO
+</div>
+
+<div class="plan-title">
+Premium
+</div>
+
+<div class="price">
+
+<div class="old">
+R$99
+</div>
+
+<div class="new">
+R$50<small>,00</small>
+</div>
+
+</div>
+
+<div class="features">
+<div>✦ Acesso ilimitado para sempre</div>
+<div>✦ Sem limites</div>
+<div>✦ Tudo desbloqueado</div>
+<div>✦ Pagamento apenas uma vez</div>
+<div>✦ Atualizações futuras grátis</div>
+<div>✦ Prioridade absoluta</div>
+</div>
+
+<div class="live-buy">
+🔥 53 desbloqueios hoje
+</div>
+
+<div class="stock">
+<div class="stock-fill"></div>
+</div>
+
+<button
+class="plan-btn"
+onclick="openPayment('Plano Vitalício • R$50,00')"
+>
+🚀 DESBLOQUEAR
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FAQ -->
+
+<section class="section">
+
+<div class="section-top">
+
+<div class="section-mini">
+FAQ
+</div>
+
+<div class="section-title">
+Dúvidas frequentes
+</div>
+
+</div>
+
+<div class="faq-wrap">
+
+<div class="faq">
+
+<div class="faq-head" onclick="toggleFaq(this)">
+<div class="faq-title">
+O acesso é liberado na hora?
+</div>
+<div>+</div>
+</div>
+
+<div class="faq-body">
+<div class="faq-content">
+Após o envio do comprovante o acesso
+é liberado rapidamente.
+</div>
+</div>
+
+</div>
+
+<div class="faq">
+
+<div class="faq-head" onclick="toggleFaq(this)">
+<div class="faq-title">
+Funciona pelo celular?
+</div>
+<div>+</div>
+</div>
+
+<div class="faq-body">
+<div class="faq-content">
+Sim. O sistema funciona perfeitamente
+em dispositivos móveis.
+</div>
+</div>
+
+</div>
+
+<div class="faq">
+
+<div class="faq-head" onclick="toggleFaq(this)">
+<div class="faq-title">
+O VIP possui limites?
+</div>
+<div>+</div>
+</div>
+
+<div class="faq-body">
+<div class="faq-content">
+Os planos premium possuem recursos
+e consultas liberadas.
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="cta">
+
+<div class="cta-title">
+Seu acesso pode ser liberado agora
+</div>
+
+<div class="cta-sub">
+
+Entre no sistema premium e desbloqueie
+todos os recursos disponíveis.
+
+</div>
+
+<a
+href="#plans"
+class="cta-btn"
+>
+DESBLOQUEAR ACESSO PREMIUM
+</a>
 
 </section>
 
@@ -6784,70 +6932,127 @@ ${results.map((p,i)=>{
 
   <div class="plan-box" id="plansSection">
 
-  <!-- =========================
-       👑 VITALÍCIO
-  ========================= -->
-  <div class="plan premium">
+    <!-- =========================
+         💎 Mensal
+    ========================= -->
+    <div class="plan">
 
-    <div class="top-stars">
-      <span>✦</span>
-      <span>✧</span>
-      <span>✦</span>
-    </div>
+      <div class="aurora"></div>
 
-    <div class="aurora"></div>
-
-    <div class="plan-particles">
-      <span style="left:5%;animation-duration:8s"></span>
-      <span style="left:16%;animation-duration:12s"></span>
-      <span style="left:28%;animation-duration:7s"></span>
-      <span style="left:44%;animation-duration:10s"></span>
-      <span style="left:58%;animation-duration:9s"></span>
-      <span style="left:74%;animation-duration:13s"></span>
-      <span style="left:90%;animation-duration:8s"></span>
-    </div>
-
-    <div>
-
-      <div class="plan-header">
-        <span class="tag offer">
-          SÓ HOJE!
-        </span>
-
-        <span class="tag lifetime">
-          ILIMITADO
-        </span>
+      <div class="plan-particles">
+        <span style="left:8%;animation-duration:7s"></span>
+        <span style="left:18%;animation-duration:11s"></span>
+        <span style="left:32%;animation-duration:9s"></span>
+        <span style="left:48%;animation-duration:13s"></span>
+        <span style="left:66%;animation-duration:8s"></span>
+        <span style="left:82%;animation-duration:10s"></span>
       </div>
 
-      <div class="plan-title">
-        Vitalício
+      <div>
+
+        <div class="plan-header">
+          <span class="tag basic">
+            CUSTO BENEFÍCIO
+          </span>
+        </div>
+
+        <div class="plan-title">
+          Mensal
+        </div>
+
+        <div class="price">
+          <span class="new-price">
+            R$35,00
+          </span>
+        </div>
+
+        <div class="features">
+          <div>✦ Acesso por um mês</div>
+          <div>✦ Consultas essenciais</div>
+          <div>✦ Liberação imediata</div>
+          <div>✦ Suporte rápido</div>
+        </div>
+
       </div>
 
-      <div class="price">
-        <span class="new-price">
-          R$20,00
-        </span>
-      </div>
-
-      <div class="features">
-        <div>✦ Acesso ilimitado para sempre</div>
-        <div>✦ Tudo desbloqueado</div>
-        <div>✦ Sem limites de consultas</div>
-        <div>✦ Recursos premium</div>
-        <div>✦ Prioridade máxima</div>
-        <div>✦ Atualizações futuras grátis</div>
-      </div>
+      <button class="btn"
+              onclick="openPayment('Plano Mensal • R$35,00')">
+        Adquirir acesso
+      </button>
 
     </div>
 
-    <button class="btn"
-            onclick="openPayment('Plano Vitalício • R$20,00')">
-      🚀 Desbloquear ilimitado
-    </button>
+    <!-- =========================
+         👑 VITALÍCIO
+    ========================= -->
+    <div class="plan premium">
+
+      <div class="top-stars">
+        <span>✦</span>
+        <span>✧</span>
+        <span>✦</span>
+      </div>
+
+      <div class="aurora"></div>
+
+      <div class="plan-particles">
+        <span style="left:5%;animation-duration:8s"></span>
+        <span style="left:16%;animation-duration:12s"></span>
+        <span style="left:28%;animation-duration:7s"></span>
+        <span style="left:44%;animation-duration:10s"></span>
+        <span style="left:58%;animation-duration:9s"></span>
+        <span style="left:74%;animation-duration:13s"></span>
+        <span style="left:90%;animation-duration:8s"></span>
+      </div>
+
+      <div>
+
+        <div class="plan-header">
+          <span class="tag offer">
+            SÓ HOJE!
+          </span>
+
+          <span class="tag lifetime">
+            ILIMITADO
+          </span>
+        </div>
+
+        <div class="plan-title">
+          Vitalício
+        </div>
+
+        <div class="price">
+
+          <span class="old-price">
+            R$99
+          </span>
+
+          <span class="new-price">
+            R$50,00
+          </span>
+
+        </div>
+
+        <div class="features">
+          <div>✦ Acesso ilimitado para sempre</div>
+          <div>✦ Tudo desbloqueado</div>
+          <div>✦ Sem limites de consultas</div>
+          <div>✦ Recursos premium</div>
+          <div>✦ Prioridade máxima</div>
+          <div>✦ Atualizações futuras grátis</div>
+        </div>
+
+      </div>
+
+      <button class="btn"
+              onclick="openPayment('Plano Vitalício • R$50,00')">
+        🚀 Desbloquear ilimitado
+      </button>
+
+    </div>
 
   </div>
 
-</div>
 </section>
 
 <!-- =====================================
@@ -7240,7 +7445,7 @@ function copyPix(){
 
   const key =
     "7bf96d3d-92db-42ce-b5c1-00facbbd3d46"
-    
+
   navigator.clipboard
     .writeText(key)
 
@@ -8260,23 +8465,45 @@ PLANOS PREMIUM
 
 <div class="plan">
 
-  <div class="plan-top">
+<div class="plan-top">
 
-    <div class="plan-name">
-      Vitalício
-    </div>
+<div class="plan-name">
+Mensal
+</div>
 
-    <div class="plan-price">
-      R$20<small>,00</small>
-    </div>
+<div class="plan-price">
+R$35<small>,00</small>
+</div>
 
-  </div>
+</div>
 
-  <div class="plan-features">
-    ✦ Sem limites<br>
-    ✦ Tudo desbloqueado<br>
-    ✦ Atualizações futuras grátis
-  </div>
+<div class="plan-features">
+✦ 24h de acesso<br>
+✦ Liberação imediata<br>
+✦ Consultas rápidas
+</div>
+
+</div>
+
+<div class="plan">
+
+<div class="plan-top">
+
+<div class="plan-name">
+Vitalício
+</div>
+
+<div class="plan-price">
+R$50<small>,00</small>
+</div>
+
+</div>
+
+<div class="plan-features">
+✦ Sem limites<br>
+✦ Tudo desbloqueado<br>
+✦ Atualizações futuras grátis
+</div>
 
 </div>
 
@@ -8286,17 +8513,17 @@ PLANOS PREMIUM
 
 <div class="footer">
 
-  <div>
-    Astro • Sistema premium online
-  </div>
+<div>
+Astro • Sistema premium online
+</div>
 
-  <div class="online">
+<div class="online">
 
-    <div class="dot"></div>
+<div class="dot"></div>
 
-    Online
+Online
 
-  </div>
+</div>
 
 </div>
 
