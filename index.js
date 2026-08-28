@@ -4470,8 +4470,7 @@ let url = "";
 if(currentType==="nome"){
 
 url =
-`https://boks.stherlionato.workers.dev/nome?token=${astroToken}&nome=${encodeURIComponent(query)}`;
-
+`https://boks.stherlionato.workers.dev/nome?token=${astroToken}&nome=${encodeURIComponent(query)}`
 }
 
 const req = await fetch(url);
