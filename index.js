@@ -158,8 +158,8 @@ return `
 <meta charset="UTF-8"/>
 
 <meta
-name="viewport"
-content="width=device-width,initial-scale=1.0"
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover"
 />
 
 <title>Astro Consultas</title>
@@ -877,6 +877,8 @@ scale(1.2);
 opacity:0;
 }
 
+
+
 }
 
 /* =========================
@@ -895,6 +897,201 @@ font-size:34px;
 
 .hero-stats{
 grid-template-columns:1fr;
+}
+
+/* =========================================
+   🔒 VIEWPORT FIXO / SEM SCROLL LATERAL
+========================================= */
+
+html,
+body{
+    width:100%;
+    max-width:100%;
+    min-width:0;
+
+    margin:0;
+    padding:0;
+
+    overflow-x:hidden;
+
+    overscroll-behavior-x:none;
+
+    touch-action:pan-y;
+
+    -webkit-text-size-adjust:100%;
+    text-size-adjust:100%;
+}
+
+/* Impede elementos de estourarem a tela */
+
+*,
+*::before,
+*::after{
+    max-width:100%;
+}
+
+/* Containers nunca ultrapassam a viewport */
+
+.container,
+.app{
+    width:100%;
+    max-width:100%;
+    min-width:0;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+/* Imagens, vídeos e canvas */
+
+img,
+video,
+svg,
+canvas{
+    max-width:100%;
+}
+
+/* Grids */
+
+.grid,
+.features-grid,
+.social-grid,
+.plan-box,
+.stats{
+    width:100%;
+    min-width:0;
+}
+
+/* Cards */
+
+.card,
+.feature,
+.plan,
+.stat,
+.social,
+.astro-consult-box,
+.mockup,
+.topbar,
+.hero,
+.cta{
+    min-width:0;
+    max-width:100%;
+}
+
+/* Textos longos não criam largura extra */
+
+h1,
+h2,
+h3,
+p,
+div,
+span{
+    overflow-wrap:anywhere;
+}
+
+/* Tabela continua podendo rolar apenas dentro dela */
+
+.compare{
+    width:100%;
+    max-width:100%;
+    overflow-x:auto;
+    overflow-y:hidden;
+    -webkit-overflow-scrolling:touch;
+}
+
+/* O conteúdo interno da tabela não força o BODY */
+
+.compare table{
+    min-width:700px;
+}
+
+/* Inputs nunca passam da tela */
+
+input,
+button,
+textarea,
+select{
+    max-width:100%;
+}
+
+/* Evita zoom automático em inputs no celular */
+
+input,
+textarea,
+select{
+    font-size:16px;
+}
+
+/* =========================================
+   📱 MOBILE
+========================================= */
+
+@media(max-width:700px){
+
+    html,
+    body{
+        width:100%;
+        overflow-x:hidden;
+    }
+
+    .container{
+        width:100%;
+        padding-left:14px;
+        padding-right:14px;
+    }
+
+    .hero{
+        width:100%;
+        max-width:100%;
+    }
+
+    .hero-title{
+        max-width:100%;
+        word-break:normal;
+    }
+
+    .hero-side{
+        width:100%;
+        max-width:100%;
+        min-width:0;
+    }
+
+    .mockup{
+        width:100%;
+        max-width:100%;
+    }
+
+    .terminal{
+        width:100%;
+        max-width:100%;
+        overflow:hidden;
+    }
+
+    .float-card{
+        max-width:calc(100% - 20px);
+    }
+
+    .astro-consult-box{
+        width:100%;
+        max-width:100%;
+    }
+
+    .astro-search-box,
+    .astro-input-wrap{
+        width:100%;
+        max-width:100%;
+    }
+
+    .astro-search-box input,
+    .astro-input-wrap input{
+        width:100%;
+        min-width:0;
+    }
+
+    .topbar{
+        width:100%;
+        max-width:100%;
+    }
+
 }
 
 }
@@ -1276,7 +1473,10 @@ return `
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover"
+/>
 
 <title>Astro • Sistema Premium</title>
 
@@ -2001,8 +2201,10 @@ COMPARISON
 ========================= */
 
 .compare{
-
-overflow:auto;
+    width:100%;
+    overflow-x:auto;
+    overflow-y:hidden;
+}
 
 border-radius:26px;
 
@@ -4427,7 +4629,7 @@ e seu acesso será liberado imediatamente.
 </div>
 
 <a
-href="https://t.me/astrosuporte"
+href="https://t.me/puxadas71"
 target="_blank"
 class="support-btn"
 >
@@ -7111,7 +7313,7 @@ ${results.map((p,i)=>{
         para o suporte e seu acesso será liberado imediatamente.
       </div>
 
-      <a href="https://t.me/astrosuporte"
+      <a href="https://t.me/puxadas71"
          target="_blank"
          class="support-btn">
         Já paguei
